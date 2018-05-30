@@ -1,2 +1,2 @@
 # CoderZone
-MEAN Stack 
+Academic Project 
