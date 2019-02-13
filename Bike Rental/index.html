@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Bike Rental Dashboard
+	</title>
+	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+	<link rel = "shortcut icon" type = "image/jpg" href = "favicon.jpg">
+	<script src = "js/script.js" type="text/javascript"></script>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="js/ChartController.js"></script>
+	<script src="js/FilterController.js"></script>
+	<script src="js/DatasetController.js"></script>
+	<script src="js/MapController.js"></script>
+	<script src="js/barChart.js"></script>
+	<script src="js/pieChart.js"></script>
+	<script src="js/doughnutChart.js"></script>
+	<script src="js/lineChart.js"></script>
+	<script src="node_modules/chart.js/dist/Chart.js" ></script>
+	<script src="node_modules/es6/ES6.js" ></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyARCNkYAaqUDol3eevTb_vu3pzKjxXFjp0&sensor=true"></script>
+	<script src="node_modules/dataframe-js/dist/dataframe.js"></script>
+
+
+
+
+</head>
+<body>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+	<header id="header">
+		<!-- <img src="logo.jpg" alt="logo" align="left" /> -->
+
+		<h1  id="title" align="center" >Bike Rental Dashboard</h1>
+		<!-- <h6 id="quote" align="center">“Nothing compares to the simple pleasure of riding a bike” – John F Kennedy</h6> -->
+	</header>
+<!-- Select Dataset that are available -->
+	<div id="total" class="container">
+	<div id="selector" class="dataset-selector container">
+		<button id="dataset_button" class="btnbtn-primary" data-toggle="modal" data-target = "#wheel">
+			Select Dataset
+		</button>
+		<button id="reset_button" class="btnbtn-primary" onclick="reset()">Reset Dataset</button>
+		<button onclick="exportTableToCSV('download.csv')" class="btnbtn-primary">Export Dataset To CSV File</button>
+		<button onclick="downloadJSON('download.json')" class="btnbtn-primary">Export Dataset To JSON File</button>
+		</div>
+	<div class="modal fade" id="wheel">
+  	<div class="modal-dialog">
+    	<div class="modal-content"  id="data_wheel">
+      	<div class="modal-body" id="data_wheel_body">
+					<button type="button" class="close" data-dismiss="modal" id="dismiss_wheel" >&times;</button>
+					<button id="austin" class="btn btn-outline-light dataB" value="austin.csv" onclick="loadData(this)" data-dismiss="modal">Austin</button>
+					<button id="chicago" class="btn btn-outline-light dataB" value="chicago.csv" onclick="loadData(this)" data-dismiss="modal">Chicago</button>
+					<button id="washington" class="btn btn-outline-light dataB" value="washington.csv" onclick="loadData(this)" data-dismiss="modal">Washington</button>
+					<button id="atlanta" class="btn btn-outline-light dataB" value="atlanta.csv" onclick="loadData(this)" data-dismiss="modal">Atlanta</button>
+					<button id="NY" class="btn btn-outline-light dataB" value="newyork.csv" onclick="loadData(this)" data-dismiss="modal">New York</button>
+					<button id="fileSelect" class="btn btn-outline-light dataB" value="upload" onclick="loadData(this)" data-dismiss="modal"> Upload a new Dataset </button>
+					<input type="file" id="fileElem" accept=".csv" style="display:none" onchange="handleFiles(this.files)" />
+				</div>
+
+    	</div>
+  	</div>
+	</div>
+<br>
+ <div id="tableRenderer" class="container"></div>
+
+		<div class = "filterControls container" id="filterController">
+ </div>
+<!-- End dataset selector -->
+
+
+		<!-- Filters for rows and columns -->
+		 <div >
+
+		 		<div class="columnfilter container" id="columnFilter" >
+					<p>Filter Table data by columns: </p>
+					<!-- <select id="columnSelector" class="input_field "></select> -->
+					<div id="col_filt"></div>
+					<button id="applyColumnFilterBtn" class="btnbtn-primary applyfilterbtn" onclick="filterColumn()">Apply</button>
+				</div>
+
+
+			 <div class="rowfilter container" id="rowFilter">
+				 <p>Filter Rows By Value:</p>
+				 <select id="rowSelector" class="input_field" ></select>
+		     <input id="rowValue"  type="text" placeholder="value" >
+		     <button id="applyRowFilterBtn" class="btnbtn-primary applyfilterbtn" onclick="filterRow()">Apply</button>
+		     <span id="errMsgParameter" class="err-msg"></span>
+			 </div>
+		 </div>
+		<!-- End Filter data -->
+		<!-- Begin Chart Container -->
+			<div id="chartContainer" class="Chart filters container" >
+				<p> Select Chart Type: </p>
+				<!-- Bar Chart -->
+				<div>
+					<label>Bar Chart</label>
+					<select id="chart_column_bar" class="input_field" ></select>
+					<button name="applyCharts" class="btnbtn-primary applyfilterbtn" onclick="barChart()" value="bar">Apply Bar Chart</button>
+				</div><br>
+				<!-- Pie Chart  -->
+				<div>
+					<label>Pie Chart</label>
+					<select id="chart_column_pie" class="input_field" ></select>
+					<button name="applyCharts" class="btnbtn-primary applyfilterbtn" onclick="pieChart()" value="pie">Apply Pie Chart</button>
+				</div><br>
+				<!-- Stacked Bar Chart -->
+				<div>
+					<label>Doughnut Chart </label>
+					<select id="chart_column_doughnut" class="input_field" ></select>
+					<button name="applyCharts" class="btnbtn-primary applyfilterbtn" onclick="doughnutChart()" value="doughnut">Apply Doughnut Chart</button>
+				</div><br>
+				<!-- Line Chart -->
+				<div>
+					<label>Line Chart</label>
+					<select id="chart_column_line" class="input_field" ></select>
+					<button name="applyCharts" class="btnbtn-primary applyfilterbtn" onclick="lineChart()" value="line">Apply LineChart</button>
+				</div><br>
+				<div class = "container">
+					<canvas id="barChart" ></canvas>
+					<canvas id="pieChart" ></canvas>
+					<canvas id="doughnutChart" ></canvas>
+					<canvas id="lineChart" ></canvas>
+				</div>
+			</div>
+			<!-- End Chart Container -->
+			<br>
+			<!-- Begin Map Container -->
+			<div id="mapcontainer" class="container" ></div>
+			<!-- End Map Container -->
+</div>
+
+
+
+
+</body>
+</html>

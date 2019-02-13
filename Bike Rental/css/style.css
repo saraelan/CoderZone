@@ -1,0 +1,215 @@
+#data_wheel{
+	top: 135px;
+	background:transparent;
+	left:0px;
+	top:50px;
+
+	border-color:#b3ffb3;
+}
+
+
+
+div#wheel {
+		position: absolute;
+    padding: 25px 50px 75px 100px;
+    /* background-color: #b3ffb3; */
+}
+
+
+#dataset_button:active{
+		background-color: Green;
+	transform: translateY(4px);
+}
+
+thead{
+	background-color: #47a447;
+	width: 100%;
+}
+
+#showfilters{
+		background : " ForestGreen";
+
+}
+
+#showcharts{
+	background : " ForestGreen";
+}
+
+.dataB#austin{
+	height: 150px;
+	position: absolute;
+    left: 0px;
+	width: 200px;
+	top: 0px;
+	border: 1px solid #ffffff;
+		border-color:black;
+	background:black;
+		padding:10px;
+}
+
+tbody{
+	width: 100%;
+}
+
+
+
+.dataB#chicago{
+	height: 150px;
+	position: absolute;
+    left: 160px;
+	top: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	width: 200px;
+	border-color:black;
+	background:black;
+		padding:10px;
+
+}
+
+.dataB#washington{
+	height: 150px;
+	position: absolute;
+    left: 320px;
+	width: 200px;
+	top: 0px;
+		border-color:black;
+	background:black;
+		padding:10px;
+}
+
+.dataB#NY{
+	height: 150px;
+	position: absolute;
+   left: 80px;
+	top: 150px;
+	border-top: 0px;
+	border-left: 0px;
+	width: 200px;
+	border-bottom: 0px;
+		border-color:black;
+	background:black;
+		padding:10px;
+}
+
+.dataB#atlanta{
+	height: 150px;
+	position: absolute;
+    left: 240px;
+	top: 150px;
+	border-top: 0px;
+	border-left: 0px;
+	width: 200px;
+	border-color:black;
+	background:black;
+	padding:10px;
+}
+
+
+
+#company_logo{
+
+}
+
+.dataB#fileSelect{
+	height: 100px;
+	width:200px;
+	padding:10px;
+	position: absolute;
+    left: 160px;
+	top: 350px;
+	border: 1px 1px 0px 1px solid #ffffff;
+	border-color:black;
+	background:Green;
+}
+
+#header{
+	background-color: ForestGreen;
+	text-overflow: ellipsis;
+	height:100px;
+	padding: 18px;
+}
+
+#footer{
+	background-color: ForestGreen;
+	text-overflow: ellipsis;
+	height:20px;
+	padding: 18px;
+}
+
+#quote{
+	padding:10px;
+	color:white;
+	font-style:italic;
+	font-family:Lucida Console;
+}
+
+#austin{
+	background-color:black;
+}
+
+#title{
+	font-family:Verdana;
+	font-weight: bold;
+	font-style:oblique;
+}
+
+.btnbtn-primary {
+	background-color: ForestGreen;
+	font-family:Verdana;
+	font-style:oblique
+}
+
+#tableRender{
+	display:none;
+}
+
+#rowFilter{
+	display: none;
+}
+#columnFilter{
+	display : none;
+}
+#chartContainer{
+	display: none;
+}
+#barchart{
+
+	width: 100px;
+  border: 1px solid black;
+	display : none;
+}
+
+#piechart{
+
+	width: 100px;
+  border: 1px solid black;
+	display : none;
+}
+
+#linechart{
+
+	width: 100px;
+  border: 1px solid black;
+	display : none;
+}
+
+#doughnutchart{
+
+	width: 100px;
+  border: 1px solid black;
+	display : none;
+}
+
+
+#filterController{
+	position: relative;
+	display: none;
+}
+
+#mapcontainer{
+	display: none;
+	height: 500px;
+	
+	border: 0.5px solid black;
+}
