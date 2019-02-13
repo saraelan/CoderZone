@@ -1,0 +1,142 @@
+
+<!doctype html>
+<html>
+<head>
+<meta
+	http-equiv="Content-Type"
+	content="text/html; charset=utf-8" />
+<title>CricInfo</title>
+
+<link
+	rel="stylesheet"
+	href="styles/styles.css"
+	type="text/css" />
+<link
+	rel="stylesheet"
+	href="styles/font-awesome.min.css"
+	type="text/css" />
+<link
+	rel="stylesheet"
+	href="styles/bootstrap.min.css"
+	type="text/css" />
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="styles/datatables.min.css" />
+
+<link
+	rel="stylesheet"
+	href="styles/mystyle.css"
+	type="text/css" />
+<script src="scripts/jquery.min.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+
+	$('#myCarousel').carousel({
+  interval: 3000
+})
+
+$('.dropdown-toggle').dropdown()
+
+$('.carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+});
+});
+</script>
+
+
+</head>
+
+
+<body onload="init()">
+
+		<script type="text/javascript" src="javascript.js"></script>
+
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+		<a
+			class="navbar-brand"  style = "font-size: 33px;"
+			href="/CricInfo/">
+			<img
+				src="images/8.PNG"
+				width="80"
+				height="40"
+				class="d-inline-block align-top"
+				alt="">
+		CricInfo
+		</a>
+		<div class="container">
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNavAltMarkup"
+
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div
+				class="collapse navbar-collapse"
+				id="navbarNavAltMarkup">
+				<div class="navbar-nav" style ="font-size: 20px;">
+					<a
+						class="nav-item nav-link active"
+						href="Home">Home </a>
+					<a
+						class="nav-item nav-link active"
+						href="TicketList">Tickets</a>
+					<a
+						class="nav-item nav-link active"
+						href="EventList">Events</a>
+					<a
+						class="nav-item nav-link active"
+						href="PlayerList">Players</a>
+					<a
+						class="nav-item nav-link active"
+						href="RunScorers">Scorer</a>
+					<a
+						class="nav-item nav-link active"
+						href="TeamList">Team</a>
+					<a
+						class="nav-item nav-link active"
+						href="SouvenirList">Shop</a>
+
+						<a
+							class="nav-item nav-link active"
+							href="Trending">Trending</a>
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+			<div style="float: right; width: 20%; margin-top: 10px;  padding: 5px; padding-right: 25px;margin-left:-250px;">
+						<div name="autofillform" style ="margin-left:-470px;" >
+							<input type="text" name="searchId" value="" class="input"
+								id="searchId" onkeyup="doCompletion()"
+								placeholder="Search here.." style="padding: 7px; font-size: 16px; margin-left:2px;width:300px;" />
+							<div id="auto-row">
+								<table id="complete-table" class="gridtable"
+									style="position: absolute; background-color: #f9f8f8; width: 315px; "></table>
+							</div>
+						</div>
+					</div>
+</nav>
+	</div>
